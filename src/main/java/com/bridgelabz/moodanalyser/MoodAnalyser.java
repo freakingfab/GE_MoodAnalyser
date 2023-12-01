@@ -5,7 +5,7 @@ package com.bridgelabz.moodanalyser;
  */
 public class MoodAnalyser {
 
-    private String message;
+    private final String message;
 
     /*
         @desc: constructor for class
@@ -32,8 +32,10 @@ public class MoodAnalyser {
      */
     public String analyseMood(){
         try{
-            if(message == null || message.isEmpty()){
-                throw new IllegalArgumentException();
+            if (message == null) {
+                throw new MoodAnalysisException(MoodError.NULL_MESSAGE);
+            } else if (message.isEmpty()) {
+                throw new MoodAnalysisException(MoodError.EMPTY_MESSAGE);
             }
             String lowercaseMessage = message.toLowerCase();
             if(lowercaseMessage.contains("sad")){
@@ -43,7 +45,8 @@ public class MoodAnalyser {
                 return "Happy";
             }
         }
-        catch(IllegalArgumentException e){
+        catch(MoodAnalysisException e){
+            System.out.println("Invalid Mood: " + e.getError().getMessage());
             return "Happy";
         }
     }

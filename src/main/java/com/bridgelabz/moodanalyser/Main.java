@@ -5,12 +5,11 @@ public class Main {
         System.out.println("Welcome to Mood Analyser!!");
 
 
-        String messageTestCase1 = "I am in sad mood";
-        MoodAnalyser moodAnalyserSad = new MoodAnalyser(messageTestCase1);
-        System.out.println("Message: " + messageTestCase1 + " has mood -> " + moodAnalyserSad.analyseMood());
+        MoodAnalyser moodAnalyserSad = new MoodAnalyser();
+        System.out.println("Message: "  + " has mood -> " + moodAnalyserSad.analyseMood());
 
-        String messageTestCase2 = "I am in any mood";
+        String messageTestCase2 = "";
         MoodAnalyser moodAnalyserHappy = new MoodAnalyser(messageTestCase2);
-        System.out.println("Message: " + messageTestCase2 + " has mood -> " + moodAnalyserHappy.analyseMood());
+        System.out.println("Message: empty has mood -> " + moodAnalyserHappy.analyseMood());
     }
 }

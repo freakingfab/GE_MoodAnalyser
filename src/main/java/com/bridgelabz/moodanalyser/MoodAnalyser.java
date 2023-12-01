@@ -31,11 +31,19 @@ public class MoodAnalyser {
         @return: String
      */
     public String analyseMood(){
-        String lowercaseMessage = message.toLowerCase();
-        if(lowercaseMessage.contains("sad")){
-            return "Sad";
+        try{
+            if(message == null || message.isEmpty()){
+                throw new IllegalArgumentException();
+            }
+            String lowercaseMessage = message.toLowerCase();
+            if(lowercaseMessage.contains("sad")){
+                return "Sad";
+            }
+            else{
+                return "Happy";
+            }
         }
-        else{
+        catch(IllegalArgumentException e){
             return "Happy";
         }
     }

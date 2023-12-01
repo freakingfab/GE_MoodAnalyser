@@ -5,11 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 public class MoodAnalyserTestUC_1 {
     private MoodAnalyser moodAnalyser;
-    @Before
-    public void initialiser(){
-        moodAnalyser = new MoodAnalyser();
-    }
-
     /*
         @desc: test case 1 for sad mood
         @params: none
@@ -17,7 +12,8 @@ public class MoodAnalyserTestUC_1 {
      */
     @Test
     public void TestCaseSad(){
-        String mood = moodAnalyser.analyseMood("I am in sad mood");
+        moodAnalyser = new MoodAnalyser("I am in sad mood");
+        String mood = moodAnalyser.analyseMood();
         assertEquals("Sad", mood);
     }
 
@@ -28,7 +24,8 @@ public class MoodAnalyserTestUC_1 {
      */
     @Test
     public void TestCaseHappy(){
-        String mood = moodAnalyser.analyseMood("I am in any mood");
+        moodAnalyser = new MoodAnalyser("I am in any mood");
+        String mood = moodAnalyser.analyseMood();
         assertEquals("Happy", mood);
     }
 }
